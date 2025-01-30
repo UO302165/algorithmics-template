@@ -9,5 +9,8 @@ if __name__ == '__main__':
         t2 = time()
         print("n =", n, "***", "time =", int(1000*(t2-t1)), "milliseconds)")
         #print(primes)
+        if(t2-t1 > 60):
+            print("Out of time")
+        print("\n")
         n = n*2
 
