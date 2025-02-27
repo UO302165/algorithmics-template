@@ -38,7 +38,7 @@ public class QuicksortInsertion {
 		int i = left;
 		int j = right - 1;
 		int pivot;
-		if (right-left<=k) {
+		if (right-left<=k && right-left > 0) {
 			insertion(a,left,right);
 		}
 		else if (left < right){ //if there is one element it is not necessary
