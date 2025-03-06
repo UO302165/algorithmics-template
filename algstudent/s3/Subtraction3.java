@@ -1,4 +1,4 @@
-package algorithmicsS3;
+package algorithmicsS3_2;
 
 /* Class that models T(n)=2 T(n-1)+O(1)
  * Params: a=2;b=1;k=0

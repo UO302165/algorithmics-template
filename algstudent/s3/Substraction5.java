@@ -1,4 +1,4 @@
-package algorithmicsS3;
+package algorithmicsS3_2;
 
 public class Substraction5 {
 	public static long rec5(int n) {

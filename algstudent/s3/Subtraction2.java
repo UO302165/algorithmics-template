@@ -1,4 +1,4 @@
-package algorithmicsS3;
+package algorithmicsS3_2;
 
 /* Class that models T(n)=T(n-1)+O(n)
  * The time complexity is quadratic O(n^2) 

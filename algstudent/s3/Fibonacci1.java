@@ -1,4 +1,4 @@
-package algorithmicsS3;
+package algorithmicsS3_2;
 
 /* We will solve in 4 different ways the famous 
  * Fibonacci series: 0 1 1 2 3 5 8 13 21 34 55 89 ...*/

@@ -1,4 +1,4 @@
-package algorithmicsS3;
+package algorithmicsS3_2;
 
 /* This program serves to measure times automatically increasing the size of 
  * the problem (n) and also using a time scale determined by nTimes, 

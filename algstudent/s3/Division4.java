@@ -1,4 +1,4 @@
-package algorithmicsS3;
+package algorithmicsS3_2;
 
 public class Division4 {
 	public static long rec4 (int n)

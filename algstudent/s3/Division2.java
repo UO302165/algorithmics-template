@@ -1,4 +1,4 @@
-package algorithmicsS3;
+package algorithmicsS3_2;
 
 /* Params: a=2;b=2;k=1
  * The time complexity is O(nlogn) 
@@ -25,7 +25,9 @@ public class Division2{
 		 {
 			  t1 = System.currentTimeMillis ();
 			   
-			  cont=rec2(n);
+			  for(int i = 0; i<100000;i++) {
+					 cont=rec2(n);
+				}
 			 
 			  t2 = System.currentTimeMillis ();
 			

@@ -1,4 +1,4 @@
-package algorithmicsS3;
+package algorithmicsS3_2;
 
 /* Params: a=1;b=3;k=1
  * The time complexity is O(n) 
@@ -23,9 +23,9 @@ public class Division1 {
 		for (int n=1;n<=10000000;n*=2)
 		 {
 			 t1 = System.currentTimeMillis ();
-			
-			 cont=rec1(n);
-			 
+			for(int i = 0; i<100000;i++) {
+				 cont=rec1(n);
+			}
 			 t2 = System.currentTimeMillis ();
 			
 			 System.out.println ("n="+n+ "**TIME="+(t2-t1)+"**cont="+cont);
