@@ -11,10 +11,10 @@ import org.json.simple.parser.ParseException;
 public class Greedy {
 	public static void main(String[] args) {
 		JSONParser parser = new JSONParser();
-		try (FileReader reader = new FileReader("g8.json")) {
+		try (FileReader reader = new FileReader("g32.json")) {
 			JSONObject jsonObject = (JSONObject) parser.parse(reader);
 			@SuppressWarnings("unchecked")
-			Map<String, List<String>> graph = (Map<String, List<String>>) jsonObject.get("graph");
+			Map<String, List<String>> graph = (Map<String, List<String>>) (jsonObject.get("graph"));
 
 			Map<String, String> solution = GraphColouring.greedy(graph);
 			try (FileWriter file = new FileWriter("solution.json")) {
