@@ -121,7 +121,7 @@ if __name__ == "__main__":
 
     
     # We can load the information from JSON files, if you prefer to generate the solution in Java.
-    with open('sols/graph.json') as f:
+    with open('sols/g32.json') as f:
         map = json.load(f)
         f.close()
     with open('sols/solution.json') as f:
