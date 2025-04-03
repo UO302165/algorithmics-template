@@ -8,8 +8,8 @@ public class NullPath{
 	
 	private static final int TOLERANCE = 99;
 	
-	public static void main(String[] args) {
-		int size = Integer.parseInt(args[0]);
+	public static void run(int sizeOfM) {
+		int size = sizeOfM;
 		int [][] weights = new int[size][size];
 		int origin = 0;
 		int target = size-1;
@@ -17,12 +17,12 @@ public class NullPath{
 		sol[origin]=origin;
 		sol[target]=target;
 		fillInWeightsRandom(weights);
-		for(int i = 0; i<size;i++) {
-			for(int j = 0; j<size;j++) {
-				System.out.print(weights[i][j] + " ");
-			}
-			System.out.println();
-		}
+//		for(int i = 0; i<size;i++) {
+//			for(int j = 0; j<size;j++) {
+//				System.out.print(weights[i][j] + " ");
+//			}
+//			System.out.println();
+//		}
 		getNullPath(weights,origin,target,1,sol);
 		
 		
@@ -47,11 +47,11 @@ public class NullPath{
 	
 	static void getNullPath(int [][] w, int origin, int target, int level, int[] sol) {
 		if(isSolution(level, sol, w)) {
-			System.out.print("[");
-			for(int i=0; i<sol.length;i++) {
-				System.out.print(sol[i]+" ");
-			}
-			System.out.println("]");
+//			System.out.print("[");
+//			for(int i=0; i<sol.length;i++) {
+//				System.out.print(sol[i]+" ");
+//			}
+//			System.out.println("]");
 			
 		}
 		else{
