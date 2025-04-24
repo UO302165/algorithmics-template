@@ -11,19 +11,16 @@ public class NullPathBB{
 	public static void run(int sizeOfM) {
 		int size = sizeOfM;
 		int [][] weights = new int[size][size];
-		int origin = 0;
-		int target = size-1;
-		int[] sol = new int[size];
-		sol[origin]=origin;
-		sol[target]=target;
+		Node origin = new Node(0,null,0,weights);
+		Node target =  new Node(size-1,null,size-1,weights);
 		fillInWeightsRandom(weights);
-		for(int i = 0; i<size;i++) {
-			for(int j = 0; j<size;j++) {
-				System.out.print(weights[i][j] + " ");
-			}
-			System.out.println();
-		}
-		getNullPath(weights,origin,target,1,sol);
+//		for(int i = 0; i<size;i++) {
+//			for(int j = 0; j<size;j++) {
+//				System.out.print(weights[i][j] + " ");
+//			}
+//			System.out.println();
+//		}
+		new BranchAndBound().branchAndBound(origin, weights, target);
 		
 		
 		

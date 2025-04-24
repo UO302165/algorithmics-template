@@ -7,8 +7,9 @@ import java.util.Random;
 public class NullPath{
 	
 	private static final int TOLERANCE = 99;
-	
+	private static List<Integer> alreadyVisited;
 	public static void run(int sizeOfM) {
+		alreadyVisited = new ArrayList<Integer>();
 		int size = sizeOfM;
 		int [][] weights = new int[size][size];
 		int origin = 0;
@@ -55,19 +56,13 @@ public class NullPath{
 			
 		}
 		else{
-			boolean alreadyVisited = false;
 			for(int i = 1; i<w.length-1;i++) {
-				alreadyVisited = false;
-				for(int j = 0; j<w.length;j++) {
-					if(sol[j]==i) {
-						alreadyVisited=true;
-						break;
-					}
-				}
-				if(!alreadyVisited) {
+				if(!alreadyVisited.contains(i)) {
 					sol[level]=i;
+					alreadyVisited.add(i);
 					getNullPath(w, origin, target, level+1, sol);
 					sol[level]=-1;
+					alreadyVisited.remove((Object)i);
 				}
 				
 				

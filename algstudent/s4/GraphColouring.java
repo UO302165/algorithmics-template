@@ -34,28 +34,39 @@ public class GraphColouring {
 		List<String> neighbours = graph.get(index+"");
 		Object nextCandidate=-1;
 		boolean nextCandidateFound = false;
-		
-		for(int i = 0; i<neighbours.size();i++) {
-			Object key = neighbours.get(i);
-			if(solution.containsKey(key.toString())){
-				notPosibleColors.add(solution.get(key.toString()));
-			}else if(!nextCandidateFound && !isolatedNodes.contains(key)) {
-				nextCandidate = key;
-				nextCandidateFound = true;
+		int alreadyVisit = 0;
+		while(alreadyVisit<=graph.size()) {
+			for(int i = 0; i<neighbours.size();i++) {
+				Object key = neighbours.get(i);
+				if(solution.containsKey(key.toString())){
+					notPosibleColors.add(solution.get(key.toString()));
+				}else if(!nextCandidateFound && !isolatedNodes.contains(key)) {
+					nextCandidate = key;
+					nextCandidateFound = true;
+				}
 			}
-		}
-		String color="";
-		for(int i=0;i<colorArray.length;i++) {
-			if(!notPosibleColors.contains(colorArray[i])) {
-				color = colorArray[i];
+			String color="";
+			for(int i=0;i<colorArray.length;i++) {
+				if(!notPosibleColors.contains(colorArray[i])) {
+					color = colorArray[i];
+					break;
+				}
+			}
+			
+			solution.put(index+"", color);
+			if(nextCandidateFound) {
+				index=(Long)(nextCandidate);
+				nextCandidateFound=false;
+				nextCandidate=-1;
+				neighbours = graph.get(index+"");
+				notPosibleColors = new ArrayList<String>();
+				alreadyVisit++;
+			}else {
 				break;
 			}
 		}
 		
-		solution.put(index+"", color);
-		if(nextCandidateFound) {
-			simpleGreedyState(graph,solution,(Long)(nextCandidate));
-		}
+		
 		
 		
 	}

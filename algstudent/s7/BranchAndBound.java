@@ -2,6 +2,7 @@ package algorithmicsS7;
 
 import java.util.ArrayList;
 
+
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
 
@@ -17,7 +18,7 @@ public class BranchAndBound {
 	protected Node bestNode; //To save the final node of the best solution
 	protected Node rootNode; //Initial node
 	protected int pruneLimit; //To prune nodes above this value
-	       
+	   
 	/**
 	 * Constructor for BrancAndBount objects
 	 */
@@ -29,14 +30,17 @@ public class BranchAndBound {
 	 * Manages all the process, from the beginning to the end
 	 * @param rootNode Starting state of the problem
 	 */
-	public void branchAndBound(Node rootNode, int[][] weights, Node targetNode) { 
+	public Heap branchAndBound(Node rootNode, int[][] weights, Node targetNode) { 
+		
 		ds.insert(rootNode); //First node to be explored
 	
 		pruneLimit = rootNode.initialValuePruneLimit();
 
 		while (!ds.empty() && ds.estimateBest() < pruneLimit) {
 			Node node = ds.extractBestNode();	
-			
+			if(node.depth==targetNode.depth) {
+				
+			}
 			ArrayList<Node> children = node.expand(weights); 
 			
 			for (Node child : children)
@@ -52,6 +56,7 @@ public class BranchAndBound {
 						ds.insert(child);
 					}
 		} //while
+		return ds;
 	}
 		
 	/**

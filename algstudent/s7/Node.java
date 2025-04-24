@@ -12,17 +12,24 @@ import java.util.UUID;
 public class Node implements Comparable<Node> {
     protected int depth; //Number of moves made so far (is equal to the number of nodes developed) on this branch
     protected int parentID; //Parent ID for node tracking
+    private Node parent;
     protected int ID; //ID for the node
     protected int heuristicValue; //Value of the calculated heuristic
 
     /**
      * Constructor for Node objects
      */
-	public Node(int ID, int parentId, int depth) { //Values by default
-    	this.depth = depth; 
-    	parentID = parentId; //It does not have parent unless we say another thing
+	public Node(int ID, Node parent, int depth, int[][]weights) { //Values by default
+    	this.depth = depth;
+    	if(parent!=null) {
+    		parentID = parent.getID(); //It does not have parent unless we say another thing
+        	this.parent=parent;
+    	}else {
+    		parentID=-1;
+    	}
+    	
     	this.ID =ID;
-    	calculateHeuristicValue();
+    	calculateHeuristicValue(weights);
     	
 	}
 	
@@ -83,16 +90,18 @@ public class Node implements Comparable<Node> {
 		else return -1; //this has more priority (is smaller)
 	}
     
-	public void calculateHeuristicValue() {
-		if(parentID!=null) {
-			
+	public void calculateHeuristicValue(int[][] weights) {
+		if(parentID!=-1) {
+			heuristicValue= parent.getHeuristicValue() + weights[parentID][ID];
+		}else {
+			heuristicValue=0;
 		}
 	}
 	public ArrayList<Node> expand(int[][] weights){
 		ArrayList<Node> children = new ArrayList<Node>();
 		for(int i=0;i<weights.length;i++) {
 			if(i!=ID) {
-				children.add(new Node(i,ID, depth+1));
+				children.add(new Node(i,this, depth+1,weights));
 			}
 		}
 		return children;

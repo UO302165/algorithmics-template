@@ -11,14 +11,14 @@ import java.util.UUID;
  */
 public class Heap {
 	private PriorityQueue<Node> nodes; //Nodes on the Heap
-	private HashMap<UUID, Node> usedNodes; //To compose the solution and to know what nodes have been treated
+	private HashMap<Integer, Node> usedNodes; //To compose the solution and to know what nodes have been treated
 	
 	/**
 	 * Constructor for Heap objects
 	 */
 	public Heap() {
 		nodes = new PriorityQueue<Node>();
-        usedNodes = new HashMap<UUID, Node>();
+        usedNodes = new HashMap<Integer, Node>();
 	}
 	
 	/**
@@ -82,9 +82,9 @@ public class Heap {
 		ArrayList<Node> result = new ArrayList<Node>();
 		
         result.add(node); //Add the last node
-        UUID parentID = node.getParentID(); //Find its parent node
+        int parentID = node.getParentID(); //Find its parent node
 
-        while (parentID != null) { //While there is a parent node
+        while (parentID != -1) { //While there is a parent node
         	node = usedNodes.get(parentID);
             result.add(node);
             parentID = node.getParentID();
