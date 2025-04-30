@@ -6,10 +6,11 @@ public class MinimumPathsTimes {
 		double endTime;
 		for(int i = 200; i<10000000;i*=2) {
 			 startTime=System.currentTimeMillis();
-			 MinimumPaths.compute(i);
+			 MinimumPaths.compute(4);
 			 endTime=System.currentTimeMillis();
 			 
 			 System.out.println("THE TIME COMPUTING FLOYD FOR " + i+ " NODES IS: " + (endTime-startTime));
+			 break;
 		}
 	}
 
